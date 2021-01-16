@@ -5,7 +5,9 @@
   <%= @article.title %>
 </p>
 
-<%= image_tag(@article.image) %>
+<div>
+  <%= image_tag(@article.image, style:'width: 256px;') %>
+</div>
 
 <p>
   <strong>Text:</strong>
