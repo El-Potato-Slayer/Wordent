@@ -1,4 +1,34 @@
 const colors = require('tailwindcss/colors')
+const plugin = require('tailwindcss/plugin')
+
+const underlineColorPlugin = plugin(function ({ addUtilities, e, theme, variants }) {
+  const colors = theme('colors', {})
+  const underlineColorVariants = variants("underlineColor", []);
+
+  const utilities = Object.entries(colors).map(
+    ([color, colorValue], i) => {
+      if (typeof colorValue === 'object') {
+        return Object.entries(colorValue).map(
+          ([colorVariant, value]) => {
+            return {
+              [`.underline-${e(color)}-${e(colorVariant)}`]: {
+                textDecoration: `underline ${value}`
+              }
+            };
+          }
+        )
+      } else {
+        return {
+          [`.underline-${e(color)}`]: {
+            textDecoration: `underline ${colorValue}`
+          }
+        };
+      }
+    }
+  );
+
+  addUtilities(utilities, underlineColorVariants);
+})
 
 module.exports = {
   purge: [
@@ -30,6 +60,9 @@ module.exports = {
       indigo: colors.indigo,
       purple: colors.violet,
       pink: colors.pink,
+      brown: '#4E443F',
+      orange: '#F9A82C',
+      'dark-orange': '#F95E00'
     },
     spacing: {
       px: '1px',
@@ -233,6 +266,7 @@ module.exports = {
       min: 'min-content',
       max: 'max-content',
       fr: 'minmax(0, 1fr)',
+      1: '1'
     },
     gridColumn: {
       auto: 'auto',
@@ -366,6 +400,10 @@ module.exports = {
       '3/6': '50%',
       '4/6': '66.666667%',
       '5/6': '83.333333%',
+      '30': '30vh',
+      '50': '50vh',
+      '70-68': 'calc(70vh - 68px)',
+      '100-68': 'calc(100vh - 68px)',
       full: '100%',
       screen: '100vh',
     }),
@@ -836,7 +874,7 @@ module.exports = {
     strokeWidth: ['responsive'],
     tableLayout: ['responsive'],
     textAlign: ['responsive'],
-    textColor: ['responsive', 'dark', 'group-hover', 'focus-within', 'hover', 'focus'],
+    textColor: ['responsive', 'dark', 'group-hover', 'focus-within', 'hover', 'focus', 'active'],
     textDecoration: ['responsive', 'group-hover', 'focus-within', 'hover', 'focus'],
     textOpacity: ['responsive', 'group-hover', 'focus-within', 'hover', 'focus'],
     textOverflow: ['responsive'],
@@ -848,6 +886,7 @@ module.exports = {
     transitionProperty: ['responsive'],
     transitionTimingFunction: ['responsive'],
     translate: ['responsive', 'hover', 'focus'],
+    underlineColor: ["hover"],
     userSelect: ['responsive'],
     verticalAlign: ['responsive'],
     visibility: ['responsive'],
@@ -856,5 +895,5 @@ module.exports = {
     wordBreak: ['responsive'],
     zIndex: ['responsive', 'focus-within', 'focus'],
   },
-  plugins: [],
+  plugins: [underlineColorPlugin],
 }

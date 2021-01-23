@@ -1,32 +1,21 @@
-<p id="notice"><%#= notice %></p>
-
-<h1>Articles</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Text</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @articles.each do |article| %>
-      <tr>
-        <td><%= article.title %></td>
-        <td><%= article.text %></td>
-        <td><%= link_to 'Show', article %></td>
-        <td><%= link_to 'Edit', edit_article_path(article) %></td>
-        <td><%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
+  <%= link_to article_path(sort_articles[0]) do %>
+    <%= render "articles/featured_article" %>
+  <% end %>      
+    
+  <div class="grid md:grid-cols-2 lg:grid-cols-4">
+    <%= render "articles/category_articles" %>
+  </div>
+    <%= link_to "Write an article", new_article_path, class: "inline-block bg-brown text-orange px-3 py-2 rounded m-5 h-1/6" %>
+<%# <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Pariatur odio adipisci magni nisi rerum maiores exercitationem quisquam expedita aperiam, illum sint fugiat mollitia explicabo obcaecati, dolore inventore dolorum nam sequi!</p>
 <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Pariatur odio adipisci magni nisi rerum maiores exercitationem quisquam expedita aperiam, illum sint fugiat mollitia explicabo obcaecati, dolore inventore dolorum nam sequi!</p>
 <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Pariatur odio adipisci magni nisi rerum maiores exercitationem quisquam expedita aperiam, illum sint fugiat mollitia explicabo obcaecati, dolore inventore dolorum nam sequi!</p>
-<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Pariatur odio adipisci magni nisi rerum maiores exercitationem quisquam expedita aperiam, illum sint fugiat mollitia explicabo obcaecati, dolore inventore dolorum nam sequi!</p>
-<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Pariatur odio adipisci magni nisi rerum maiores exercitationem quisquam expedita aperiam, illum sint fugiat mollitia explicabo obcaecati, dolore inventore dolorum nam sequi!</p>
+<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Pariatur odio adipisci magni nisi rerum maiores exercitationem quisquam expedita aperiam, illum sint fugiat mollitia explicabo obcaecati, dolore inventore dolorum nam sequi!</p> %>
+
 <%#= link_to 'New Article', new_article_path %>
+      <!--<tr>
+        <td><%#= article.title %></td>
+        <td><%#= article.text %></td>
+        <td><%#= link_to 'Show', article %></td>
+        <td><%#= link_to 'Edit', edit_article_path(article) %></td>
+        <td><%#= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr> -->

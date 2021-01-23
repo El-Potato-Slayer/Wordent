@@ -2,19 +2,9 @@ document.addEventListener('turbolinks:load', () => {
   const clickButton = document.getElementById("nav-btn");
   let target = document.getElementById("nav-links")
   clickButton.addEventListener("click", function () {
-    // if (target.style.) {
-      
-    // }
-    // alert(document.documentElement.clientWidth)
-    // $(target).toggleClass("flex")
-    if (target.style.display === "none" && document.documentElement.clientWidth < 1024) {
-      
-    }
     $(target).animate({
       height:"toggle"
     })
-    // if (screen.width < 1024) {
-    // }
   }); 
 
   window.addEventListener("resize", function () {
@@ -26,6 +16,35 @@ document.addEventListener('turbolinks:load', () => {
   })
 });
 
+// jQuery(document).ready(function(){
+
+//   var navHeight = $("#nav").height(); // Get nav height
+//   // var footerHeight = $("#footer").height(); // get footer height
+//   var windowHeight = $(window).height(); // get window height
+//   var content = $("#featured-article"); 
+  
+//       content.height(windowHeight - navHeight); // do math
+//       console.log(navHeight); // for testing
+//       console.log(windowHeight); // for testing
+//       console.log(content.height()); // for testing
+  
+//   // Dont forget to call it on resize also
+//   $(window).resize(function() {
+//       content.height(windowHeight - navHeight);
+//   });
+  
+//   });
+
+// $(document).ready(function(){
+//   let nav = document.getElementById("nav");
+//   document.getElementById('featured-article').style.height = 1000 - nav.style.height 
+//   });
+
+  
+// $(window).load(function() {
+//   let nav = document.getElementById("nav");
+//   document.getElementById('featured-article').style.height = 1000 - nav.style.height
+// });
 // document.addEventListener('turbolinks:load', () => {  
 //   const clickButton = document.getElementById("nav-btn");  
 //   // let target = clickButton.querySelector('[data-target="#nav-links"]')
@@ -52,3 +71,9 @@ document.addEventListener('turbolinks:load', () => {
 //     })
 //   })
 // });
+
+function getContentHeight(){
+  let featuredArticle = document.getElementById('featured-article')
+  let nav = document.getElementById("nav");
+  featuredArticle.style.height = document.documentElement.clientHeight - nav.style.height 
+}

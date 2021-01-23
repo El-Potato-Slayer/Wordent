@@ -1,5 +1,9 @@
 module ApplicationHelper
   def get_categories
-    @categories = Category.all
+    Category.all
+  end
+
+  def prioritized_categories
+    Category.all.order("priority ASC")
   end
 end
