@@ -3,9 +3,9 @@ module ApplicationHelper
     Category.all
   end
 
-  def prioritized_categories
-    Category.all.order("priority ASC")
-  end
+  # def prioritized_categories
+  #   Category.all.order("priority ASC")
+  # end
 
   def like_or_dislike_btn(article)
     vote = Vote.find_by(article: article, user: current_user)

@@ -5,7 +5,7 @@ module CategoriesHelper
     category.articles.order("created_at DESC")
   end
   
-  def first_article(category)
+  def first_category_article(category)
     @first_art = most_recent_articles(category).first
   end
 end

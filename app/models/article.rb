@@ -5,4 +5,6 @@ class Article < ApplicationRecord
   has_many :article_categories
   has_many :categories, through: :article_categories
   has_many :votes
+
+  scope :sort_by_votes, -> { includes(:votes).sort_by{ |article| article.votes.count}.reverse }
 end
