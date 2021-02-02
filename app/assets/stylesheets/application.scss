@@ -29,23 +29,11 @@
   grid-auto-rows: 1;  
 }
 
-.area{
-  grid-area: 
-    "one ."
-    "two three";
-}
-
 .vignette{
   box-shadow: inset 0 -100px 100px 10px rgba($color: #000000, $alpha: 0.5);
 }
 
 @media only screen and (min-width: 1280px) {
-  // .y:nth-child(3n){
-  //   order: 2
-  // }
-  // .y:nth-child(4n){
-  //   order: 1
-  // }
   .reverse:nth-of-type(4n - 1),
   .reverse:nth-of-type(4n) {
     .first{
@@ -53,3 +41,10 @@
     }
   }
 }
+
+@media only screen and (min-width: 1024px) {
+  #nav-links{
+    display: grid !important;
+  }
+}
+

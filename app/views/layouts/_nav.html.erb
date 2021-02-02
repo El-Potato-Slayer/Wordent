@@ -1,28 +1,26 @@
-<nav id="nav" class="flex items-center bg-gray-50 p-3 flex-wrap lg:flex-nowrap">
-    <div class="w-3/12 ">
-      <p class="p-2 mr-4 inline-flex items-center text-xl font-bold">Logo</p>
+<nav id="nav" class="grid grid-cols-2 lg:grid-cols-3 bg-gray-50 px-3 py-4 items-center">
+  <p>Logo</p>
+
+  <button id="nav-btn" data-target="#nav-links" class="hover:bg-gray-400 rounded lg:hidden ml-auto nav-toggler" >
+    <i  class="material-icons">menu</i>
+  </button>
+  
+  <div id="nav-links" class="lg:grid col-span-2 lg:grid-cols-2 lg:col-span-2 justify-center justify-items-center text-center hidden">
+    <div class="flex flex-col lg:flex-row">
+      <%= link_to "Home", :root, class: "px-3 py-1" %>
+      <% get_categories.each do |category| %>
+        <%= link_to category.name, category, class: "px-3 py-1" %>
+      <% end %>
     </div>
-
-    <button id="nav-btn" data-target="#nav-links" class="hover:bg-gray-400 rounded lg:hidden ml-auto nav-toggler" >
-      <i  class="material-icons">menu</i>
-    </button>
-
-    <div id="nav-links" class="flex flex-col w-full lg:flex-row hidden lg:flex uppercase font-semibold text-gray-500" >
-      <div class="w-full flex flex-col justify-center lg:flex-row items-center">
-        <%= link_to 'Home', :root, class: "px-3 py-1 active:text-orange"  %>
-        <% get_categories.each do |category| %>
-          <%= link_to category.name, category_path(category.id), class: "px-3 py-1 active:text-yellow-500" %>
-        <% end %>
-      </div>
-
-      <div class="w-full flex flex-col lg:flex-row justify-end items-center">
-        <% if user_signed_in? %>
-          <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "px-3 py-1" %>
-        <% else %>
-          <%= link_to 'Login', new_user_session_path, class: "px-3 py-1" %>
-          <%= link_to 'Register',  new_user_registration_path, class: "px-3 py-1" %>
-        <% end %>
-      </div>
-
+    
+    <div class="flex flex-col lg:justify-self-end lg:flex-row">
+      <% if user_signed_in? %>
+        <%= link_to "Write an article", new_article_path, class: "px-3 py-1" %>
+        <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "px-3 py-1" %>
+      <% else %>
+        <%= link_to 'Login', new_user_session_path, class: "px-3 py-1" %>
+        <%= link_to 'Register',  new_user_registration_path, class: "px-3 py-1" %>
+      <% end %>
     </div>
+  </div>
 </nav>

@@ -5,13 +5,14 @@
       <div >
         <h2 class="text-yellow-500 underline text-lg font-bold"><%= @category.name %></h2>
         <h3 class="text-lg font-bold py-2"><%= article.title %></h3>
-        <p class="white-space"><%= article.text[0...200] %>...</p> 
+        <p class="white-space"><%= article.text[0...190] %>...</p> 
       </div>
       <div class="grid grid-cols-2 justify-between text-yellow-600 self-end pt-4 pb-6">
         <p>Written by <%= article.author.name %></p>
-        <%= link_to :root, class: "justify-self-end" do %>
-          <i class="material-icons">thumb_up_alt</i>
-        <% end %>
+        <%#= link_to :root, class: "justify-self-end" do %>
+          <%# <i class="material-icons">thumb_up_alt</i> %>
+        <%# end %>
+        <%= like_or_dislike_btn(article) %>
         <div>
           <%= link_to 'Read more', article_path(article)%>
         </div>

@@ -7,13 +7,13 @@ document.addEventListener('turbolinks:load', () => {
     })
   }); 
 
-  window.addEventListener("resize", function () {
-    if (document.documentElement.clientWidth >= 1024) {
-      target.style.display = "flex"
-    } else {
-      target.style.display = "none"
-    }
-  })
+  // window.addEventListener("resize", function () {
+  //   if (document.documentElement.clientWidth >= 1024) {
+  //     target.style.display = "flex"
+  //   } else {
+  //     target.style.display = "none"
+  //   }
+  // })
 });
 
 // jQuery(document).ready(function(){

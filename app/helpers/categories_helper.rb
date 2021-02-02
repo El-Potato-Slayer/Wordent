@@ -1,8 +1,8 @@
 module CategoriesHelper
-  @recent_articles = nil
+  # @recent_articles = nil
   
   def most_recent_articles(category = @category)
-    @recent_articles = category.articles.order("created_at DESC")
+    category.articles.order("created_at DESC")
   end
   
   def first_article(category)

@@ -1,8 +1,8 @@
 <% prioritized_categories.each do |category| %>
-  <%= link_to article_path(first_article(category)) do %>
-    <article class="flex bg-img h-50 lg:h-30 justify-between flex-col px-6 py-5 bg-cover vignette" style="background-image: url(<%= rails_blob_url(@recent_articles.first.image) %>);">
+  <%= link_to category_path(category) do %>
+    <article class="flex bg-img h-50 lg:h-30 justify-between flex-col px-6 py-5 bg-cover vignette" style="background-image: url(<%= rails_blob_url(most_recent_articles(category).first.image) %>);">
       <h2 class="text-gray-50 text-lg font-bold underline-yellow-200"><%= category.name %></h2>
-      <p class="font-semibold text-gray-50 text-lg"><%= @recent_articles.first.title %></p>
+      <p class="font-semibold text-gray-50 text-lg"><%= most_recent_articles(category).first.title %></p>
     </article>
   <% end %>
 <% end %>
