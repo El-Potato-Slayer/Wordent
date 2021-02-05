@@ -7,7 +7,7 @@ class VotesController < ApplicationController
     @vote = current_user.votes.build(article_id: params[:article_id])
 
     if @vote.save
-      redirect_back(fallback_location: root_path)    
+      # redirect_back(fallback_location: root_path)
     else
       # redirect_to posts_path, alert: 'You cannot like this post.'
     end
@@ -17,7 +17,7 @@ class VotesController < ApplicationController
     vote = Vote.find_by(id: params[:id], user: current_user, article_id: params[:article_id])
     if vote
       vote.destroy
-      redirect_back(fallback_location: root_path)
+      # redirect_back(fallback_location: root_path)
     else
       redirect_to posts_path, alert: 'You cannot dislike post that you did not like before.'
     end

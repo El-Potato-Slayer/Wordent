@@ -3,16 +3,12 @@ module ApplicationHelper
     Category.all
   end
 
-  # def prioritized_categories
-  #   Category.all.order("priority ASC")
-  # end
-
   def like_or_dislike_btn(article)
     vote = Vote.find_by(article: article, user: current_user)
     if vote
-      link_to('Dislike', article_vote_path(id: vote.id, article_id: article.id), method: :delete, remote: true, class: "justify-self-end")
+      link_to('favorite_border', article_vote_path(id: vote.id, article_id: article.id), method: :delete, remote: true, class: "material-icons justify-self-end like")
     else
-      link_to 'Like', article_votes_path( article_id: article.id), method: :post, remote: true, class: "justify-self-end"
+      link_to 'favorite', article_votes_path( article_id: article.id), method: :post, remote: true, class: "material-icons justify-self-end like"
     end
   end
 end

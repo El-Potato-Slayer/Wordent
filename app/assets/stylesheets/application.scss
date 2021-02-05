@@ -12,7 +12,6 @@
  *
  *= require_tree .
  *= require_self
- *= require material_icons
  */
 .white-space{
   white-space: pre-line;
@@ -33,6 +32,7 @@
   box-shadow: inset 0 -100px 100px 10px rgba($color: #000000, $alpha: 0.5);
 }
 
+
 @media only screen and (min-width: 1280px) {
   .reverse:nth-of-type(4n - 1),
   .reverse:nth-of-type(4n) {
@@ -45,6 +45,16 @@
 @media only screen and (min-width: 1024px) {
   #nav-links{
     display: grid !important;
+  }
+
+  .enlarge{
+    transition: all 0.2s ease-in-out;
+  }
+
+  .enlarge:hover{
+    transform: scale(1.2);
+    background: #4B5563;
+    color: white;
   }
 }
 
