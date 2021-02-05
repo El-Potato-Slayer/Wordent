@@ -1,5 +1,5 @@
 <article class="">
-  <div class="bg-img bg-cover h-50 vignette flex justify-center text-center items-center px-4" style="background-image: url(<%= rails_blob_url(@article.image) %>);">
+  <div class="bg-img bg-cover h-50 flex justify-center text-center items-center px-4 overlay" style="background-image: url(<%= rails_blob_url(@article.image) %>);">
     <h1 class="text-4xl md:text-5xl lg:text-6xl text-gray-100"><%= @article.title %></h1>
   </div>
 
@@ -8,12 +8,17 @@
       <%= @article.text %>
     </p>
     
-    <div class="text-red-500 justify-self-end mr-16" id="like">
-      <%= like_or_dislike_btn(@article) %>
+    <div class="flex justify-between">
+      <p class="font-semibold">Written by <%= @article.author.name %></p>
+      <div class="text-red-500 mr-16 flex items-center" id="like">
+        <span class="mx-1"><%= @article.votes.count %></span><%= like_or_dislike_btn(@article) %>
+      </div>
     </div>
+  <div class="flex justify-center mb-8 justify-self-start">
+    <%= link_to 'Back', :back, class: "border-2 border-purple-500 hover:text-white hover:bg-purple-500 shadow-md px-4 py-1 rounded transition-all" %>
+    <%= edit_delete_buttons(@article) %>
+
   </div>
-  
+  </div>
 </article>
 
-<%= link_to 'Edit', edit_article_path(@article) %> |
-<%= link_to 'Back', articles_path %>

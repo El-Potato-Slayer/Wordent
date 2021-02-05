@@ -1,4 +1,4 @@
 <article class="flex h-100-68 lg:h-70-68 justify-end width-full flex-col px-6 py-4 bg-img bg-cover vignette" style="background-image: url(<%= rails_blob_url(first_article.image) %>);">
   <h2 class="text-dark-orange text-lg font-bold py-2"><%= first_article.title %></h2>
-  <p class="text-gray-200 "><%= first_article.text %></p>
+  <p class="text-gray-200 "><%= first_article.text[0..75] %></p>
 </article>

@@ -1,27 +1,31 @@
 document.addEventListener('turbolinks:load', () => {  
-  // const clickButton = document.getElementById("nav-btn");
-  // let target = document.getElementById("nav-links")
-  // clickButton.addEventListener("click", function () {
-  //   $(target).animate({
-  //     height:"toggle"
-  //   })
-  // }); 
-
-  const clickOpen = document.getElementById("nav-btn");
+  const clickButton = document.getElementById("nav-btn");
   let target = document.getElementById("nav-links")
-  clickOpen.addEventListener("click", function () {
-    target.style.width = "250px"
+  clickButton.addEventListener("click", function () {
+    $(target).animate({
+      height:"toggle"
+    })
   }); 
 
-  // (function() {
-  //   $(".like").on("ajax:success", function(e, data, status, xhr) {
-  //     // e.preventDefault();
-  //     return false      
-  //   });
+  // $(function() {
+  $('#pictureInput').on('change', function(event) {
+    var files = event.target.files;
+    var image = files[0]
+    var reader = new FileReader();
+    reader.onload = function(file) {
+      var img = new Image();
+      console.log(file);
+      img.src = file.target.result;
+      $('#target').html(img);
+    }
+    reader.readAsDataURL(image);
+    console.log(files);
+  });
   // });
-
-  let likeButton = document.getElementById("like")
-  likeButton.addEventListener("click", function () {
+  
+  // let likeButton = document.getElementById("like")
+  $('#like').on("click", function () {
     $("#like").load(" #like > *");
   })
+
 });

@@ -18,7 +18,7 @@
     <div class="flex flex-col lg:justify-self-end lg:flex-row">
       <% if user_signed_in? %>
         <%= link_to "Write an article", new_article_path, class: "px-3 py-1" %>
-        <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "px-3 py-1 border-2 rounded border-gray-600" %>
+        <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "px-3 py-1 lg:border-2 rounded border-gray-600" %>
       <% else %>
         <%= link_to 'Login', new_user_session_path, class: "px-3 py-1" %>
         <%= link_to 'Register',  new_user_registration_path, class: "px-3 py-1" %>
