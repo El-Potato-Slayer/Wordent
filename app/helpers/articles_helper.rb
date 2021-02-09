@@ -18,7 +18,7 @@ module ArticlesHelper
 
   def display_article_image(article)
     if article.image.attached?
-        image_tag(article.image, class: "w-full my-8" ) 
+        image_tag(article.image, class: "w-full mt-8" ) 
     end
   end
 end
