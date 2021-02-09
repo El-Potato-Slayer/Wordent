@@ -16,3 +16,5 @@ ActiveStorage.start()
 
 require("packs/methods")
 require("jquery")
+require("trix")
+require("@rails/actiontext")

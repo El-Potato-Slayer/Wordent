@@ -13,6 +13,38 @@
  *= require_tree .
  *= require_self
  */
+ @import "./actiontext.scss";
+
+ .v-scroll{
+  overflow-y: scroll;
+ }
+
+ .top-shadow{
+   box-shadow: inset 0 8px 3px rgba($color: #E0E1FF, $alpha: 0.6),
+               inset 4px 8px 3px rgba($color: #E0E1FF, $alpha: 0.6),
+               inset -4px 8px 3px rgba($color: #E0E1FF, $alpha: 0.6);
+ }
+
+ .bottom-shadow{
+  box-shadow: 0 8px 3px rgba($color: #E0E1FF, $alpha: 0.3),
+              4px 8px 3px rgba($color: #E0E1FF, $alpha: 0.3),
+              -4px 8px 3px rgba($color: #E0E1FF, $alpha: 0.3);
+ }
+
+ .white-shadow{
+  border: solid 3px transparent;
+  background-image: linear-gradient(rgba(126, 119, 119, 0), rgba(255, 255, 255, 0)), linear-gradient(101deg, #818CF8, #60A5FA);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+  box-shadow: 2px 100px 1px #fff inset,inset 0 8px 3px rgba($color: #E0E1FF, $alpha: 0.6);
+  transition: all 0.5s cubic-bezier(0.39, 0.575, 0.565, 1);
+ }
+
+ .white-shadow:hover{
+   box-shadow: none;
+   color: white;
+ }
+ 
 .white-space{
   white-space: pre-line;
 }
@@ -36,15 +68,24 @@
   box-shadow: inset 0 0 200px 100px rgba($color: #000000, $alpha: 0.9);
 }
 
+.trix-button--icon-decrease-nesting-level,
+.trix-button--icon-increase-nesting-level {
+  display: none;
+}
 
-@media only screen and (min-width: 1280px) {
-  .reverse:nth-of-type(4n - 1),
-  .reverse:nth-of-type(4n) {
-    .first{
-      order: 2
-    }
+textarea {
+  resize: none;
+  overflow: hidden;
+  min-height: 26px;
+  max-height: 100px;
+}
+
+@media only screen and (max-width: 640px) {
+  .trix-button-group--history-tools{
+    display: none !important;
   }
 }
+
 
 @media only screen and (min-width: 1024px) {
   #nav-links{
@@ -62,3 +103,12 @@
   }
 }
 
+
+@media only screen and (min-width: 1280px) {
+  .reverse:nth-of-type(4n - 1),
+  .reverse:nth-of-type(4n) {
+    .first{
+      order: 2
+    }
+  }
+}

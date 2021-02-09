@@ -11,28 +11,36 @@
     </div>
   <% end %>
 
-  <div class="field grid ">
-    <%= form.label :title %>
-    <%= form.text_field :title, class: "border-2 border-gray-400 rounded-md focus:border-blue-300 outline-none w-60 mx-auto" %>
+  <div class="field flex flex-col max-w-xs md:max-w-screen-sm mx-auto">
+    <%= form.text_area :title, placeholder: "Title", rows: "1", class: "border-b-2 border-gray-400 focus:border-blue-300 outline-none w-full text-lg md:text-2xl resize-none"%>
+  </div>
+
+  <div class="field flex flex-col max-w-xs md:max-w-screen-sm mx-auto my-16">
+    <%= form.text_area :description, placeholder: "Description", rows: "1",  class: "border-b-2 border-gray-400 focus:border-blue-300 outline-none w-full v-scroll resize-none max-h-60" %>
   </div>
 
 
-  <div class="field grid justify-center text-center">
-    <%= form.label :image, id: "pictureInput", class: "rounded-lg border-2 border-gray-400 cursor-pointer px-4 py-2 my-6" do %>
-      Upload cover
-      <%= form.file_field :image, class: "hidden" %>
-    <% end %>
-    <div id="target" class="flex w-60 justify-self-center">
-      <%= display_article_image(@article) %>
+  <div class="field flex flex-col justify-center text-center my-16">
+    <div>
+      <%= form.label :image, id: "pictureInput", class: "rounded-lg border-2 border-gray-400 cursor-pointer px-4 py-2" do %>
+        <span>
+          <i class="material-icons align-bottom">cloud_upload</i> Cover image
+        </span>
+        <%= form.file_field :image, class: "hidden" %>
+      <% end %>
+      <div id="target" class="xl:max-w-screen-lg lg:max-w-screen-md md:max-w-screen-sm mx-auto px-8 md:px-0">
+        <%= display_article_image(@article) %>
+      </div>
     </div>
   </div>
 
-  <div class="field grid justify-center">
-    <%= form.label :body %>
-    <%= form.text_area :text, class: "border-2 border-gray-400 rounded-md focus:border-blue-300 outline-none w-full" %>
+  <div class="field flex flex-col justify-center ">
+    <div class="mx-auto md:w-4/5 md:max-w-screen-sm text-left">
+        <%= form.rich_text_area :body, class: "border-2 border-gray-400 rounded-md focus:border-blue-300 outline-none " %>
+    </div>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="actions my-8 ">
+    <%= form.submit class: "py-1 px-2 cursor-pointer white-shadow top-shadow inline-block rounded-sm bottom-shadow" %>
   </div>
 <% end %>

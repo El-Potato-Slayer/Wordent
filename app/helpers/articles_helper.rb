@@ -17,6 +17,8 @@ module ArticlesHelper
   end
 
   def display_article_image(article)
-    render partial: 'article_image', locals: { article: article } if article.image.attached?
+    if article.image.attached?
+        image_tag(article.image, class: "w-full my-8" ) 
+    end
   end
 end
