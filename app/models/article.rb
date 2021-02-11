@@ -7,6 +7,8 @@ class Article < ApplicationRecord
   has_many :categories, through: :article_categories
   has_many :votes
 
+  accepts_nested_attributes_for :categories, allow_destroy: true
+
   scope :sort_by_votes, -> { includes(:votes).sort_by{ |article| article.votes.count}.reverse }
   scope :sort_by_new, -> { order("created_at DESC") }
   scope :newest_first, -> { order("created_at DESC").first }

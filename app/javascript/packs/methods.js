@@ -41,4 +41,7 @@ document.addEventListener('turbolinks:load', () => {
     var totalHeight = $(textArea).prop('scrollHeight') - parseInt($(textArea).css('padding-top')) - parseInt($(textArea).css('padding-bottom'));
     $(textArea).height(totalHeight);
   }
+
+  $(".notice").delay(3000).fadeOut(1000);
+  $(".alert").delay(3000).fadeOut(1000);
 });

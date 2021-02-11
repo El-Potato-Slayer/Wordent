@@ -1,14 +1,15 @@
-<h2>Log in</h2>
+<h2 class="text-center my-8 text-2xl">Log in</h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+<div class="grid justify-center text-center gap-8">
   <div class="field">
-    <%= f.label :login %><br />
-    <%= f.text_field :login, autofocus: true, autocomplete: "name" %>
+    <%= f.label :login %> <br>
+    <%= f.text_field :login, autofocus: true, autocomplete: "name", class: "border-b border-black outline-none focus:border-blue-300" %>
   </div>
 
   <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
+    <%= f.label :password %> <br>
+    <%= f.password_field :password, autocomplete: "current-password", class: "border-b border-black outline-none focus:border-blue-300" %>
   </div>
 
   <% if devise_mapping.rememberable? %>
@@ -19,8 +20,11 @@
   <% end %>
 
   <div class="actions">
-    <%= f.submit "Log in" %>
+    <%= f.submit "Log in", class: "py-1 px-4 cursor-pointer" %>
   </div>
+</div>
 <% end %>
 
-<%= render "devise/shared/links" %>
+<div class="text-center my-8">
+  <%= render "devise/shared/links" %>
+</div>

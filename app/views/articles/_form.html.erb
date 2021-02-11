@@ -11,12 +11,12 @@
     </div>
   <% end %>
 
-  <div class="field flex flex-col max-w-xs md:max-w-screen-sm mx-auto">
-    <%= form.text_area :title, placeholder: "Title", rows: "1", class: "border-b-2 border-gray-400 focus:border-blue-300 outline-none w-full text-lg md:text-2xl resize-none"%>
+  <div class="field flex flex-col max-w-full sm:max-w-screen-sm mx-auto">
+    <%= form.text_area :title, placeholder: "Title", rows: "1", class: "border-b-2 border-gray-400 focus:border-blue-300 outline-none w-full text-lg sm:text-2xl resize-none text-center"%>
   </div>
 
-  <div class="field flex flex-col max-w-xs md:max-w-screen-sm mx-auto my-16">
-    <%= form.text_area :description, placeholder: "Description", rows: "1",  class: "border-b-2 border-gray-400 focus:border-blue-300 outline-none w-full v-scroll resize-none max-h-60" %>
+  <div class="field flex flex-col max-w-full sm:max-w-screen-sm mx-auto my-16">
+    <%= form.text_area :description, placeholder: "Description", rows: "1",  class: "border-b-2 border-gray-400 focus:border-blue-300 outline-none w-full v-scroll resize-none max-h-60 text-center" %>
   </div>
 
 
@@ -35,12 +35,25 @@
   </div>
 
   <div class="field flex flex-col justify-center ">
-    <div class="mx-auto md:w-4/5 md:max-w-screen-sm text-left">
-        <%= form.rich_text_area :body, class: "border-2 border-gray-400 rounded-md focus:border-blue-300 outline-none " %>
+    <div class="mx-auto w-full md:w-4/5 md:max-w-screen-sm text-left">
+        <%= form.rich_text_area :body, class: "border-2 border-gray-400 rounded-md focus:border-blue-300 outline-none h-96 overflow-hidden overflow-y-auto" %>
     </div>
   </div>
 
-  <div class="actions my-8 ">
+  <div class="field grid justify-center">
+    <p class="my-6">Select a category</p>
+    <div class="grid grid-cols-2 sm:grid-cols-3 gap-8">
+    <%= form.collection_check_boxes :category_ids, get_categories, :id, :name do |checkbox| %>
+      <div class="relative h-8 px-10">
+        <%= checkbox.check_box class: 'z-10 no-chkbox' %>
+        <span class="checkbox border-2 border-gray-200 rounded-xl"></span>
+        <%= checkbox.label class: 'z-10 absolute w-full h-full tit unselectable cursor-pointer chk-label' %>
+      </div>
+    <% end %> 
+    </div>
+  </div>
+
+  <div class="actions mt-16 mb-24">
     <%= form.submit class: "py-1 px-2 cursor-pointer white-shadow top-shadow inline-block rounded-sm bottom-shadow" %>
   </div>
 <% end %>
