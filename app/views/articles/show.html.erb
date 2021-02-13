@@ -3,8 +3,8 @@
     <h1 class="text-4xl md:text-5xl lg:text-6xl text-gray-100"><%= @article.title %></h1>
   </div>
 
-  <div class="grid justify-center p-8 gap-16">
-    <p class=" xl:max-w-screen-lg lg:max-w-screen-md md:max-w-screen-sm white-space">
+  <div class="grid lg:max-w-screen-md md:max-w-screen-sm justify-center mx-auto p-8 gap-16">
+    <p class="  white-space">
       <%= @article.body if @article.body != nil %>
     </p>
     <div class="flex justify-between">

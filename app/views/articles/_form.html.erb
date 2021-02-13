@@ -1,26 +1,19 @@
 <%= form_with(model: article) do |form| %>
-  <% if article.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(article.errors.count, "error") %> prohibited this article from being saved:</h2>
-
-      <ul>
-        <% article.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <% assign_errors %>
 
   <div class="field flex flex-col max-w-full sm:max-w-screen-sm mx-auto">
+    <p class="text-red-600"><%= @title_error %></p>
     <%= form.text_area :title, placeholder: "Title", rows: "1", class: "border-b-2 border-gray-400 focus:border-blue-300 outline-none w-full text-lg sm:text-2xl resize-none text-center"%>
   </div>
 
   <div class="field flex flex-col max-w-full sm:max-w-screen-sm mx-auto my-16">
+    <p class="text-red-600"><%= @description_error %></p>
     <%= form.text_area :description, placeholder: "Description", rows: "1",  class: "border-b-2 border-gray-400 focus:border-blue-300 outline-none w-full v-scroll resize-none max-h-60 text-center" %>
   </div>
 
 
   <div class="field flex flex-col justify-center text-center my-16">
+    <p class="mb-4 text-red-600"><%= @image_error %></p>
     <div>
       <%= form.label :image, id: "pictureInput", class: "rounded-lg border-2 border-gray-400 cursor-pointer px-4 py-2" do %>
         <span>
@@ -35,6 +28,7 @@
   </div>
 
   <div class="field flex flex-col justify-center ">
+    <p class="mb-2 text-red-600"><%= @body_error %></p>
     <div class="mx-auto w-full md:w-4/5 md:max-w-screen-sm text-left">
         <%= form.rich_text_area :body, class: "border-2 border-gray-400 rounded-md focus:border-blue-300 outline-none h-96 overflow-hidden overflow-y-auto" %>
     </div>
@@ -42,6 +36,7 @@
 
   <div class="field grid justify-center">
     <p class="my-6">Select a category</p>
+    <p class="mb-2 text-red-600"><%= @category_error %></p>
     <div class="grid grid-cols-2 sm:grid-cols-3 gap-8">
     <%= form.collection_check_boxes :category_ids, get_categories, :id, :name do |checkbox| %>
       <div class="relative h-8 px-10">

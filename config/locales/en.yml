@@ -36,3 +36,6 @@ en:
     attributes:
       user:
         login: 'Username or email'
+      article:
+        category_ids: ''
+        image: ''

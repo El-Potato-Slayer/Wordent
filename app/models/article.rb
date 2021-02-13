@@ -12,4 +12,11 @@ class Article < ApplicationRecord
   scope :sort_by_votes, -> { includes(:votes).sort_by{ |article| article.votes.count}.reverse }
   scope :sort_by_new, -> { order("created_at DESC") }
   scope :newest_first, -> { order("created_at DESC").first }
+
+  validates :author_id, presence: true
+  validates :title, presence: true
+  validates :description, presence: true
+  validates :image, presence: { message: "Select a cover image" }
+  validates :body, presence: true
+  validates :category_ids, presence: { message: "Select at least 1 category" }
 end

@@ -26,6 +26,10 @@ document.addEventListener('turbolinks:load', () => {
     $("#like").load(" #like > *");
   })
 
+  $('#error_explanation').load("error_explanation", function () {
+    $("#error_explanation").load(" #error_explanation > *");
+  })
+
   $('textarea').load( "textarea", function () {
     $(this).height(1);
     setTextAreaHeight($(this))

@@ -11,6 +11,12 @@ module ApplicationHelper
       link_to 'favorite_border', article_votes_path( article_id: article.id), method: :post, remote: true, class: "material-icons justify-self-end like"
     end
   end
+
+  def display_errors
+    if flash[:errors]
+      flash[:errors].each do |e|
+        content_tag("div", e)
+      end
+    end
+  end
 end
-
-
