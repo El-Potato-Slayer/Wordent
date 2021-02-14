@@ -2,7 +2,7 @@
   <%= link_to article_path(category.articles.sort_by_new.first) do %>
     <article class="flex bg-img h-50 lg:h-30 justify-between flex-col px-6 py-5 bg-cover vignette" style="background-image: url(<%= rails_blob_url(category.articles.newest_first.image) %>);">
       <h2 class="text-gray-50 text-lg font-bold underline-yellow-200"><%= category.name %></h2>
-      <p class="font-semibold text-gray-50 text-lg mb-4"><%= category.articles.newest_first.title %></p>
+      <p class="font-semibold text-gray-50 text-lg mb-2"><%= category.articles.newest_first.title %></p>
     </article>
   <% end %>
 <% end %>
