@@ -3,9 +3,9 @@ class Article < ApplicationRecord
   
   has_one_attached :image
   has_rich_text :body
-  has_many :article_categories
+  has_many :article_categories, dependent: :destroy
   has_many :categories, through: :article_categories
-  has_many :votes
+  has_many :votes, dependent: :destroy
 
   accepts_nested_attributes_for :categories, allow_destroy: true
 
