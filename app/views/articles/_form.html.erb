@@ -8,7 +8,7 @@
 
   <div class="field flex flex-col max-w-full sm:max-w-screen-sm mx-auto my-16">
     <p class="text-red-600"><%= @description_error %></p>
-    <%= form.text_area :description, placeholder: "Description", rows: "1",  class: "border-b-2 border-gray-400 focus:border-blue-300 outline-none w-full v-scroll resize-none max-h-60 text-center" %>
+    <%= form.text_area :description, placeholder: "Description", rows: "1",  class: "border-b-2 border-gray-400 focus:border-blue-300 outline-none w-full overflow-y-auto resize-none max-h-60 text-center" %>
   </div>
 
 
