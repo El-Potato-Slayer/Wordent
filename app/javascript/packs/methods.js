@@ -38,10 +38,11 @@ document.addEventListener('turbolinks:load', () => {
   $('textarea').on('keydown', function(e){
     if(e == 13) {e.preventDefault();}
   }).on('input', function(){
-      setTextAreaHeight($(this))
+    setTextAreaHeight($(this))
   });
 
   function setTextAreaHeight(textArea) {
+    $(textArea).height(1);
     var totalHeight = $(textArea).prop('scrollHeight') - parseInt($(textArea).css('padding-top')) - parseInt($(textArea).css('padding-bottom'));
     $(textArea).height(totalHeight);
   }
