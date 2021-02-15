@@ -24,6 +24,7 @@ gem 'jbuilder', '~> 2.7'
 # gem 'bcrypt', '~> 3.1.7'
 
 # Use Active Storage variant
+gem 'aws-sdk-s3'
 gem 'image_processing'
 gem 'devise'
 gem 'hirb'
